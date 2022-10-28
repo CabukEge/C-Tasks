@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+
 #include "chessboard.h"
 
 int n = 5;
@@ -14,18 +15,18 @@ void knights_tour(struct board_t* b);
 int main() {
 	if (init_board(&b, n, start_x, start_y) > 0)
 		return EXIT_FAILURE;
-}
+
 	knights_tour(&b);
 	free_board(&b);
 	return EXIT_SUCCESS;
-	
+}
+
 void knights_tour(struct board_t* b) {
 	if (visited_fields(b) >= n*n) {
 		printf("Solution %i:\n", ++solcnt);
 		print_board(b);
 		printf("\n");
-	} 
-	else {
+	} else {
 		int i;
 		for (i=0; i<8; i++) {
 			if (isfree(b, moves[i][0], moves[i][1])) {

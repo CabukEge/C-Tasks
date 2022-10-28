@@ -6,7 +6,7 @@ struct board_t {
     int n; //größe Feld
     int x; //start x
     int y; //start y
-    int **fields;
+    int **fields;  //felder
 };
 
 void new_jump(struct board_t* b, int x, int y);
